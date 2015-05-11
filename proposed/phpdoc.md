@@ -1206,6 +1206,12 @@ setters need to be present but relies on the parent class to use the `__call()`
 method to provide it. In this situation, the child class would have a @method
 tag for each magic setter or getter method.
 
+Optionally name can be FQSEN for method name when `__call()` act as a proxy
+that passes call to other object. When FQSEN points to specific class/method then
+redirect goes directly to that method. When FQSEN points to an abstract method
+or method defined in an Interface then call is passed to that family of functions based
+on some logic inside `__call()`.
+
 The @method tag allows the author to communicate the type of the arguments and
 return value by including those types in the signature.
 
